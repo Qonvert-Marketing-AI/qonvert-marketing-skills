@@ -1,6 +1,6 @@
 # Qonvert Marketing Skills
 
-Five standalone Agent Skills for analytics, tracking and marketing decisions. Use them with an AI assistant and the context you choose to share. Each works without a Qonvert account.
+Five standalone Agent Skills for analytics, tracking and marketing decisions. Use them with an AI assistant and the context you choose to share. These five work without a Qonvert account. A sixth, free skill helps you connect an authorized Qonvert project.
 
 | Skill | What you get |
 | --- | --- |
@@ -9,6 +9,7 @@ Five standalone Agent Skills for analytics, tracking and marketing decisions. Us
 | [Choose growth channels](skills/choose-growth-channels/SKILL.md) | A ranked shortlist and one measurable acquisition experiment. |
 | [Prioritize organic search](skills/prioritize-organic-search/SKILL.md) | An SEO improvement plan based on supplied pages and search reports. |
 | [Review existing ad performance](skills/review-ad-performance/SKILL.md) | A short list of evidence-backed priorities for Google Ads or Yandex Direct. |
+| [Connect Qonvert](skills/connect-qonvert/SKILL.md) | Connect or reconnect Qonvert in ChatGPT or Claude, then confirm which project the assistant can see. Requires a Qonvert account for the live connection. |
 
 ## Try a skill
 
