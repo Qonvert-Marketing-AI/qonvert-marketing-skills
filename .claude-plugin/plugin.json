@@ -1,10 +1,10 @@
 {
-  "name": "qonvert",
-  "displayName": "Qonvert",
+  "name": "qonvert-marketing",
+  "displayName": "Qonvert Marketing",
   "version": "0.1.3",
   "description": "Free marketing skills and a guided connection to your Qonvert project.",
   "author": {
-    "name": "Qeepl Inc"
+    "name": "Qonvert Marketing AI"
   },
   "homepage": "https://qonvert.ai/",
   "license": "MIT",
