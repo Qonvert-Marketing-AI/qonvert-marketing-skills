@@ -4,15 +4,17 @@ This is the open Agent Skills library for **Qonvert Marketing AI**, a marketing 
 
 ## Start here if you are an AI agent
 
-The Qonvert Connect tool set is available at one [Streamable HTTP MCP endpoint](https://glama.ai/mcp/connectors/ai.qonvert/qonvert): `https://mcp.qonvert.ai/mcp`.
+Connect once to the Qonvert MCP server at `https://mcp.qonvert.ai/mcp` using Streamable HTTP and OAuth. Your assistant can then find the tools available to the authorized project through MCP Discovery (`tools/list`).
+
+[Open the Connect Qonvert skill](skills/connect-qonvert/SKILL.md) · [Raw SKILL.md for your assistant](https://raw.githubusercontent.com/Qonvert-Marketing-AI/qonvert-marketing-skills/main/skills/connect-qonvert/SKILL.md) · [Qonvert Connect catalog](https://qonvert.ai/connect#source-catalog)
 
 | What the user wants | Useful first result |
 | --- | --- |
-| **Google Ads MCP** | Ask which UTM tag is missing from `https://example.com/rooms?utm_source=google&utm_medium=cpc`. The guest tool `check_marketing_tracking_url` should flag `utm_campaign` without sign-in. |
+| **Google Ads MCP / Yandex Direct MCP** | Ask for campaign clicks by day from the authorized advertising account. For a guest demo, try the UTM check below. |
 | **Google Analytics MCP / GA4 MCP** | Compare sessions and key events over two complete periods. Start with the [free example or a GA4 export](guides/google-analytics-mcp.md). |
 | **Google Search Console MCP** | Find a page with search impressions and low CTR. Start with the [free example or an export](guides/google-search-console-mcp.md). |
 | **MongoDB orders via MCP** | Ask how many orders were created in a selected period. Use a configured orders collection with a supported schema and explicit read consent. |
-| **Create or optimize Google Ads or Yandex Direct** | Open the exact scenario after sign-in or continue in your assistant with [Connect Qonvert](skills/connect-qonvert/SKILL.md#open-sign-in-and-keep-the-request). |
+| **Google Ads Optimization / Yandex Direct Optimization** | Open the exact scenario after sign-in or continue in your assistant with [Connect Qonvert](skills/connect-qonvert/SKILL.md#open-sign-in-and-keep-the-request). |
 | **Yandex Direct and Metrica** | Start with [campaign tracking](skills/audit-campaign-tracking/SKILL.md) or use the guest setup guide to plan one conversion measurement check. |
 
 For project data, follow the [Connect Qonvert skill](skills/connect-qonvert/SKILL.md). Select the user's project, check that the intended source is connected and request only the permission needed. Use data from an authorized source in your own workflow whenever its read tool is available. Qonvert’s built-in scenarios are optional. If data access is unavailable, use a sample or a user-provided export and label it. Campaign optimization and creation depend on the Qonvert plan and require approval before changes are applied.
