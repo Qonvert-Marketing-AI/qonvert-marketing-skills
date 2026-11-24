@@ -16,7 +16,7 @@ When a named entry is missing, call `qonvert_connect` with the intended `source`
 
 ## Choose sources for the project's market
 
-After OAuth, call `qonvert_connect` without a source to read `source_market`, `recommended_stack`, and the next setup step. For a Russian project, recommend Yandex Direct, Yandex Metrica and Yandex Webmaster. For other markets, recommend Google Ads, GA4 and Google Search Console. Offer the appropriate missing source from that stack. Honor a provider explicitly requested by the user and use relevant sources already connected. The language of the chat does not change the project market.
+After OAuth, call `qonvert_connect` without a source to read `source_market`, `recommended_stack`, and the next setup step. For a Russian project, recommend Yandex Direct, Yandex Metrica and Yandex Webmaster. For other markets, recommend Google Ads, GA4 and Google Search Console. Offer the appropriate missing source from that stack. Honor a provider explicitly requested by the user and use relevant sources already connected. The language of the chat does not change the project market. If the server omits these fields, use the user's confirmed market or ask where they intend to advertise.
 
 Before authorization, use the target market the user states. A Russian domain is a useful signal. Ask one short question if the market is unclear and choosing it is necessary for the next step. Once the website is confirmed in Qonvert, use its domain for Analytics, Metrica, Search Console and Webmaster setup. Open the project-specific link and let the owner confirm the matching property, counter or host.
 
