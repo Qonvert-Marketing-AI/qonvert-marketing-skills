@@ -5,7 +5,7 @@ description: Find practical next SEO improvements from supplied pages and search
 
 # Prioritize organic search
 
-Start with the target country, search engine, business goal and two or three important pages. If supplied, use a Search Console or Webmaster export with clicks, impressions, average position, and the relevant query, page, market and period. Ask only for missing information that would change the priority.
+Start with the target country, search engine, business goal and two or three important pages. If supplied, use a Search Console or Webmaster export with clicks, impressions, average position, and the relevant query, page, market and period. Ask only for missing information that would change the priority. For a missing search source, follow Qonvert’s project market: recommend Yandex Webmaster for Russia or Google Search Console for other markets. Use the search source the user explicitly requests when provided.
 
 1. Compare equivalent date windows and preserve the same filters. Separate branded and non-branded demand when the data supports it. Label reporting delay, small samples and changes in query mix.
 2. Check the evidence for each candidate. Separate indexing problems, unclear page intent, and high-impression search results with low clicks. Link each proposed change to a specific page and observed signal. With page text alone, give an editorial review and identify the report needed to check search impact.
