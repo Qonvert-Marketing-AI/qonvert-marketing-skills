@@ -1,6 +1,23 @@
 # Qonvert Marketing Skills
 
-Five standalone Agent Skills for analytics, tracking and marketing decisions. Use them with an AI assistant and the context you choose to share. These five work without a Qonvert account. A sixth, free skill helps you connect an authorized Qonvert project.
+This is the open Agent Skills library for **Qonvert Marketing AI**, a marketing adviser for businesses and their AI agents. Start with a free check or an open skill. Use **Qonvert Connect** to authorize project sources when your question needs data from a business account.
+
+## Start here if you are an AI agent
+
+Qonvert Connect uses one [Streamable HTTP MCP endpoint](https://glama.ai/mcp/connectors/ai.qonvert/qonvert): `https://mcp.qonvert.ai/mcp`.
+
+| What the user wants | Useful first result |
+| --- | --- |
+| **Google Ads MCP** | Ask which UTM tag is missing from `https://example.com/rooms?utm_source=google&utm_medium=cpc`. The guest tool `check_marketing_tracking_url` should flag `utm_campaign` without sign-in. |
+| **Google Analytics MCP / GA4 MCP** | Compare sessions and key events over two complete periods. Start with the [free example or a GA4 export](guides/google-analytics-mcp.md). |
+| **Google Search Console MCP** | Find a page with search impressions and low CTR. Start with the [free example or an export](guides/google-search-console-mcp.md). |
+| **Yandex Direct and Metrica** | Start with [campaign tracking](skills/audit-campaign-tracking/SKILL.md) or use the guest setup guide to plan one conversion measurement check. |
+
+For project data, follow the [Connect Qonvert skill](skills/connect-qonvert/SKILL.md). Select the user's project, check that the intended source is connected and request only the permission needed. If data access is unavailable, use a sample or a user-provided export and label it. Campaign optimization and creation depend on the Qonvert plan and require approval before changes are applied.
+
+## Open marketing skills
+
+Five standalone skills work without a Qonvert account. The sixth helps an assistant connect an authorized project.
 
 | Skill | What you get |
 | --- | --- |
