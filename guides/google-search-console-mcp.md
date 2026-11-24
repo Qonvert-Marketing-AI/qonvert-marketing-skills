@@ -1,5 +1,27 @@
 # Google Search Console MCP: find your next SEO fix
 
+## Quick start
+
+If you already added Qonvert, reuse that connection. Otherwise choose the command for your client.
+
+**Claude Code**
+
+```sh
+claude mcp add --transport http qonvert https://mcp.qonvert.ai/mcp
+```
+
+**Codex**
+
+```sh
+codex mcp add qonvert --url https://mcp.qonvert.ai/mcp
+```
+
+For a graphical client, add the same URL as a Streamable HTTP connector. Project data requires consent for the selected source. [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp)
+
+**First prompt:** Show page and query pairs that have search impressions and few clicks. Use the export exercise below if the property is unavailable.
+
+**Property tools:** `list_search_console_properties` helps identify eligible properties on the selected connection, and `query_search_console` reads search performance for an authorized property. A query-level report can omit rows.
+
 Start with one question: which page gets enough impressions to matter but earns few clicks for a relevant query? This workflow uses Search Console performance data and also works with a CSV export.
 
 ## Run a first search performance review

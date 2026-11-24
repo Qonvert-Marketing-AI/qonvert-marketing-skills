@@ -1,5 +1,27 @@
 # Free Google Ads MCP for Claude: a quick tracking check
 
+## Quick start
+
+If you already added Qonvert, reuse that connection. Otherwise choose the command for your client.
+
+**Claude Code**
+
+```sh
+claude mcp add --transport http qonvert https://mcp.qonvert.ai/mcp
+```
+
+**Codex**
+
+```sh
+codex mcp add qonvert --url https://mcp.qonvert.ai/mcp
+```
+
+For a graphical client, add the same URL as a Streamable HTTP connector. Project data requires consent for the selected source. [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp)
+
+**First prompt:** Which UTM tag is missing from `https://example.com/rooms?utm_source=google&utm_medium=cpc`? The public `check_marketing_tracking_url` tool returns `utm_campaign` without a Qonvert account.
+
+**Account tool:** `read_ads_daily` is available to eligible clients and grants for the selected ad account. A report covers up to seven days and 500 rows. Use the project connection for account data and confirm the plan before requesting campaign changes.
+
 Use Qonvert’s public Google Ads MCP to check the UTM tags on a campaign link for free, without creating a Qonvert account. The example below uses a fictional hotel.
 
 1. In Claude, open **Customize → Connectors**. Add Qonvert as a custom remote connector at `https://mcp.qonvert.ai/mcp` if your workspace permits it. Follow any prompts shown by the client. [Claude’s remote connector guide](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)

@@ -1,5 +1,27 @@
 # Google Analytics MCP: why did traffic rise while key events fell?
 
+## Quick start
+
+If you already added Qonvert, reuse that connection. Otherwise choose the command for your client.
+
+**Claude Code**
+
+```sh
+claude mcp add --transport http qonvert https://mcp.qonvert.ai/mcp
+```
+
+**Codex**
+
+```sh
+codex mcp add qonvert --url https://mcp.qonvert.ai/mcp
+```
+
+For a graphical client, add the same URL as a Streamable HTTP connector. Project data requires consent for the selected source. [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp)
+
+**First prompt:** Compare sessions and key events for the last 28 complete days and the preceding 28 days. Use the example below if the property is unavailable.
+
+**Property tool:** `read_ga4_report` uses the GA4 property you explicitly authorize. It reads sessions, key events and tracked purchase revenue for 1–31 complete days and the preceding period when the client and grant support this tool.
+
 Compare two complete periods before deciding what to change. You can use a GA4 export for this exercise. With an authorized Analytics MCP, ask your assistant for the same metrics and period.
 
 ## Start with one property and one outcome
