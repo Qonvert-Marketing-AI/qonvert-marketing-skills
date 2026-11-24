@@ -11,6 +11,11 @@ Five standalone Agent Skills for analytics, tracking and marketing decisions. Us
 | [Review existing ad performance](skills/review-ad-performance/SKILL.md) | A short list of evidence-backed priorities for Google Ads or Yandex Direct. |
 | [Connect Qonvert](skills/connect-qonvert/SKILL.md) | Connect or reconnect Qonvert in ChatGPT or Claude, then confirm which project the assistant can see. Requires a Qonvert account for the live connection. |
 
+## Google Ads guides
+
+- [Google Ads MCP for Claude: a quick tracking check](guides/google-ads-mcp-for-claude.md)
+- [Google Ads audit checklist](guides/google-ads-audit-checklist.md)
+
 ## Try a skill
 
 Open its `SKILL.md` and give the file to your assistant. Ask it to apply the skill to your business and share only the details needed for the task. If your assistant supports Agent Skills, add the individual skill folder using its installation flow.
