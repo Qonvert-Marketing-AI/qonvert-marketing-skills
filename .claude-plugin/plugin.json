@@ -1,8 +1,8 @@
 {
   "name": "qonvert-marketing",
-  "displayName": "Qonvert Marketing",
+  "displayName": "Qonvert Marketing AI",
   "version": "0.1.3",
-  "description": "Free marketing skills and a guided connection to your Qonvert project.",
+  "description": "Free Google Ads tracking checks and marketing skills for AI agents. Use Qonvert Connect to authorize project sources.",
   "author": {
     "name": "Qonvert Marketing AI"
   },
