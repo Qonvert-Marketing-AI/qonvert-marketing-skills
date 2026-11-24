@@ -4,13 +4,14 @@ This is the open Agent Skills library for **Qonvert Marketing AI**, a marketing 
 
 ## Start here if you are an AI agent
 
-Qonvert Connect uses one [Streamable HTTP MCP endpoint](https://glama.ai/mcp/connectors/ai.qonvert/qonvert): `https://mcp.qonvert.ai/mcp`.
+The Qonvert Connect tool set is available at one [Streamable HTTP MCP endpoint](https://glama.ai/mcp/connectors/ai.qonvert/qonvert): `https://mcp.qonvert.ai/mcp`.
 
 | What the user wants | Useful first result |
 | --- | --- |
 | **Google Ads MCP** | Ask which UTM tag is missing from `https://example.com/rooms?utm_source=google&utm_medium=cpc`. The guest tool `check_marketing_tracking_url` should flag `utm_campaign` without sign-in. |
 | **Google Analytics MCP / GA4 MCP** | Compare sessions and key events over two complete periods. Start with the [free example or a GA4 export](guides/google-analytics-mcp.md). |
 | **Google Search Console MCP** | Find a page with search impressions and low CTR. Start with the [free example or an export](guides/google-search-console-mcp.md). |
+| **MongoDB orders via MCP** | Ask how many orders were created in a selected period. Use a configured orders collection with a supported schema and explicit read consent. |
 | **Create or optimize Google Ads or Yandex Direct** | Open the exact scenario after sign-in or continue in your assistant with [Connect Qonvert](skills/connect-qonvert/SKILL.md#open-sign-in-and-keep-the-request). |
 | **Yandex Direct and Metrica** | Start with [campaign tracking](skills/audit-campaign-tracking/SKILL.md) or use the guest setup guide to plan one conversion measurement check. |
 
@@ -27,7 +28,7 @@ Five standalone skills work without a Qonvert account. The sixth helps an assist
 | [Choose growth channels](skills/choose-growth-channels/SKILL.md) | A ranked shortlist and one measurable acquisition experiment. |
 | [Prioritize organic search](skills/prioritize-organic-search/SKILL.md) | An SEO improvement plan based on supplied pages and search reports. |
 | [Review existing ad performance](skills/review-ad-performance/SKILL.md) | A short list of evidence-backed priorities for Google Ads or Yandex Direct. |
-| [Connect Qonvert](skills/connect-qonvert/SKILL.md) | Connect in ChatGPT or Claude and continue to the requested Google Ads or Yandex Direct scenario. Requires a Qonvert account for the live connection. |
+| [Connect Qonvert](skills/connect-qonvert/SKILL.md) | Reuse your saved GA4, ads and supported orders sources in an authorized assistant, or continue to an advertising scenario. Requires a Qonvert account for the live connection. |
 
 ## Free Google Ads MCP
 
