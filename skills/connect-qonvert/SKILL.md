@@ -14,6 +14,12 @@ After OAuth, use the client's tool discovery (`tools/list`). Match the requested
 
 When a named entry is missing, call `qonvert_connect` with the intended `source` or use `get_setup_requirements` for the requested optimization scenario. Refresh discovery after consent changes. Use the MCP client's authorization flow for any additional permission it supports. If the client cannot grant it, give the project-specific Qonvert link or continue in a compatible client. Never infer access from a tool's title.
 
+## Choose sources for the project's market
+
+After OAuth, call `qonvert_connect` without a source to read `source_market`, `recommended_stack`, and the next setup step. For a Russian project, recommend Yandex Direct, Yandex Metrica and Yandex Webmaster. For other markets, recommend Google Ads, GA4 and Google Search Console. Offer the appropriate missing source from that stack. Honor a provider explicitly requested by the user and use relevant sources already connected. The language of the chat does not change the project market.
+
+Before authorization, use the target market the user states. A Russian domain is a useful signal. Ask one short question if the market is unclear and choosing it is necessary for the next step. Once the website is confirmed in Qonvert, use its domain for Analytics, Metrica, Search Console and Webmaster setup. Open the project-specific link and let the owner confirm the matching property, counter or host.
+
 ## Open sign-in and keep the request
 
 1. Keep the requested provider and action (create or optimize), project, and any landing page the user supplied. Ask one short question only when the request leaves a choice that affects what you open.
