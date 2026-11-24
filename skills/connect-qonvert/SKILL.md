@@ -1,25 +1,32 @@
 ---
 name: connect-qonvert
-description: Connect or reconnect a Qonvert project in ChatGPT or Claude and verify the authorized project with read-only tools. Use when onboarding someone to Qonvert MCP or diagnosing a missing, expired, or wrong-project connection.
+description: Connect or reconnect Qonvert via MCP, then continue the user's Google Ads or Yandex Direct campaign creation or optimization request. Use for first sign-in, expired access, wrong projects, and handoff to the exact advertising scenario.
 license: MIT
 ---
 
 # Connect Qonvert
 
-This skill is free under MIT. Qonvert account access and host features depend on what the user already has available.
+Use the official Streamable HTTP MCP endpoint `https://mcp.qonvert.ai/mcp` with OAuth.
 
-## Connect the intended project
+## Open sign-in and keep the request
 
-- Ask which host and Qonvert project to connect if either is unclear. If Qonvert tools are already available, call `get_project` first. If it returns the intended project, reuse the connection.
-- If the plugin already provides Qonvert, open its connection settings and choose **Connect**. For a manual connection, use the official HTTPS MCP URL `https://mcp.qonvert.ai/mcp` with OAuth.
-- **ChatGPT:** Open **Plugins**, select **+ → Add custom MCP server**, enter the URL and select OAuth. If the host offers Client ID Metadata Documents (CIMD), use it. Workspace policy may restrict custom servers. See the [OpenAI setup guide](https://developers.openai.com/api/docs/guides/custom-mcp-server).
-- **Claude:** Open **Plugins → Add → Custom → Web** (called **Customize → Connectors** in some versions). Enter the URL, require sign-in, and keep Claude's published OAuth client identity where offered. If the host requires a separately registered client, stop and ask the Qonvert administrator for the supported configuration. See the [Claude setup guide](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
-- The user signs in through Qonvert's consent page, checks the account, workspace, project and permissions, and confirms. Start with project read access. Keep passwords, one-time codes, tokens, and OAuth secrets out of the chat and package.
+1. Keep the requested provider and action (create or optimize), project, and any landing page the user supplied. Ask one short question only when the request leaves a choice that affects what you open.
+2. When Qonvert tools are present, call `get_project` to check access. If the host already shows Qonvert as signed out and exposes the guest `adsy_campaign_request` for a Google Ads creation request, call that tool first with only a fresh `request_id`. This can request campaign preparation access at the first sign-in. Keep that ID for continuation. When either call requests authorization, open or present the host's **Connect** or **Reconnect** action immediately.
+3. If the connector is absent, use the host's custom MCP setup with the endpoint above. Use the host's registered OAuth client or its client metadata when supported. The user signs in and approves the requested access in the browser. Keep credentials, one-time codes and tokens out of the conversation. Use the host-generated OAuth prompt, which includes the callback and PKCE parameters. [ChatGPT setup](https://developers.openai.com/api/docs/guides/custom-mcp-server) · [Claude setup](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+4. If the host cannot start MCP authorization, open the matching Qonvert link as soon as the provider and action are known. Offer it as a clickable link when you cannot open a browser. The link opens the scenario after Qonvert sign-in. For work back in the assistant, continue MCP authorization through the host when available.
 
-## Verify with a safe first request
+| Requested work | Sign in and open the scenario |
+| --- | --- |
+| Create Google Ads | [Open Google Ads creation](https://qonvert.ai/sign-in?redirect=%2Fdashboard%2Fscenarios%3Fscenario%3Dgoogle_ads_creation) |
+| Optimize Google Ads | [Open Google Ads optimization](https://qonvert.ai/sign-in?redirect=%2Fdashboard%2Fscenarios%3Fscenario%3Dgoogle_ads_optimization) |
+| Create Yandex Direct ads | [Open Yandex Direct creation](https://qonvert.ai/sign-in?redirect=%2Fdashboard%2Fscenarios%3Fscenario%3Dyandex_ads_creation) |
+| Optimize Yandex Direct | [Open Yandex Direct optimization](https://qonvert.ai/sign-in?redirect=%2Fdashboard%2Fscenarios%3Fscenario%3Dyandex_ads_optimization) |
 
-1. Call `get_project` and report the project name and public website, if present. If it is the wrong project, stop there. Have the user disconnect that authorization and reconnect with the intended Qonvert account and project before calling other tools.
-2. For the correct project, call `list_connections` and `list_scenarios` if available. Summarize what is connected and what is ready. Connected sources may need separate consent before the assistant can read provider data.
-3. If the tools are missing or authorization fails, report which step failed: host setup, Qonvert sign-in, project selection or permission. Give the next supported step. Leave approval and application of any proposed business action in Qonvert.
+## Continue in the authorized project
 
-First prompt after connecting: “Which Qonvert project am I connected to, and which sources and scenarios can this connection see?”
+Call `get_project` after consent and check that it matches the user's request. If it differs, ask the user to reconnect to the intended project before reading data or preparing work. For the correct project, use `qonvert_connect` when available, or `list_connections` and `list_scenarios`, to find the intended source and its status. Ask the user to choose an account only when several are plausible. For a missing connection, open the requested scenario's setup and let the owner authorize the advertising provider. Prefer the project-specific link returned by Qonvert.
+
+- **Optimize Google Ads or Yandex Direct.** Use `get_setup_requirements` with `google_ads_optimization` or `yandex_ads_optimization`. If optimization is active for the intended source, open the project's tasks with `open_in_qonvert` and continue reviewing the available recommendations. Otherwise, if Qonvert reports preparation is available, call `prepare_scenario_activation` with the scenario, selected `source_id` and a stable UUID `request_id`. Open its `approval_url` for the user. Check progress with `get_prepared_scenario`.
+- **Create Google Ads.** Use `adsy_campaign_request` if available. Pass the exact HTTPS landing page supplied by the user, or omit it to use the saved project site. Reuse the same `request_id` throughout and supply only confirmed brief details. Follow the tool's returned link and next step.
+- **Create Yandex Direct ads.** Call `get_campaign_requirements` for `yandex_direct`. If there is no active creation instance for the intended account, open its `scenario_url` to finish setup. When the required facts, budget and intended instance are confirmed, call `prepare_campaign_brief` for `yandex_direct`. Follow the live tool schema. For Google Ads hosts without `adsy_campaign_request`, use these same two tools with `google_ads` and its own brief schema.
+- **Review the result.** Open the returned review link in Qonvert. Poll `get_campaign_brief_status` with the returned `brief_id` when the user asks for progress and open the task link when it is ready. Confirmations for enabling a scenario, applying a recommendation, creating a paused campaign and launching ads happen in Qonvert. Launching and spending require separate user approval.
