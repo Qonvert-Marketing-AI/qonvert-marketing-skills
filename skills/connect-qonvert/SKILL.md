@@ -6,7 +6,13 @@ license: MIT
 
 # Connect Qonvert
 
-Use the official Streamable HTTP MCP endpoint `https://mcp.qonvert.ai/mcp` with OAuth.
+Use the official Streamable HTTP MCP endpoint `https://mcp.qonvert.ai/mcp` with OAuth. This is the shared connection for all [Qonvert Connect integrations and scenarios](https://qonvert.ai/connect#source-catalog).
+
+## Discover the right tool
+
+After OAuth, use the client's tool discovery (`tools/list`). Match the requested integration or scenario to the tool's title and call the identifier in `name` with arguments from its `inputSchema`. For example, look for **Google Ads MCP**, **Yandex Direct MCP**, **Google Search Console MCP**, **Google Ads Optimization** or **Yandex Direct Optimization**. These entry tools check the target project's readiness and point to the next operation. Continue with the tool or action returned by Qonvert.
+
+When a named entry is missing, call `qonvert_connect` with the intended `source` or use `get_setup_requirements` for the requested optimization scenario. Refresh discovery after consent changes. Use the MCP client's authorization flow for any additional permission it supports. If the client cannot grant it, give the project-specific Qonvert link or continue in a compatible client. Never infer access from a tool's title.
 
 ## Open sign-in and keep the request
 
@@ -36,9 +42,11 @@ Qonvert Connect is a set of MCP tools for analytics, ads and orders, available a
 | How many Google Ads clicks did we get in the last seven complete days? Break them down by day. | `read_ads_daily` on the authorized Google Ads account. |
 | How many orders were created in the last seven complete days? | `read_orders_aggregate` on the authorized MongoDB orders collection with a supported schema. |
 
-Call `get_qonvert_connect_guide` when available for examples and setup links without signing in. After OAuth, check the selected source and its permission in `qonvert_connect` or `list_connections` before using a report tool. If the source is saved but the grant lacks read access, request the tool's specific scope through the MCP client's consent flow. If there is no source, use the project setup link from Qonvert. Ask for a date range only when needed, follow the tool's date conventions, and name the source and period in the answer. Treat missing permissions, an incomplete report, and a measured zero as different outcomes. The orders tool returns aggregates, with no arbitrary database queries or individual customer records.
+Call `get_qonvert_connect_guide` when available for examples, documentation and setup links without signing in. After OAuth, check the selected source and its permission in `qonvert_connect` or `list_connections` before using a report tool. If the source is saved but the grant lacks read access, request the tool's specific scope through the MCP client's consent flow. If there is no source, use the project setup link from Qonvert. Ask for a date range only when needed, follow the tool's date conventions, and name the source and period in the answer. Treat missing permissions, an incomplete report, and a measured zero as different outcomes. The orders tool returns aggregates, with no arbitrary database queries or individual customer records.
 
 ## Continue advertising work
+
+Once the project and source are clear, read the permitted data and continue preparing the requested work in the same session. Share the result or the action Qonvert needs from the user. Existing Qonvert scenarios can deliver notifications through the user's connected channel.
 
 - **Optimize Google Ads or Yandex Direct.** Use `get_setup_requirements` with `google_ads_optimization` or `yandex_ads_optimization`. If optimization is active for the intended source, open the project's tasks with `open_in_qonvert` and continue reviewing the available recommendations. Otherwise, with a confirmed source, call `prepare_scenario_activation` if preparation is available or its reason is `missing_delegated_scope`. Pass the scenario, selected `source_id` and a stable UUID `request_id`. If the host asks for `qonvert.prepare`, open that consent and resume with the same request ID after checking the project. Open the returned `approval_url` and check progress with `get_prepared_scenario`. If Qonvert reports another blocker, open the scenario in the authorized project so the user can complete the indicated step.
 - **Create Google Ads.** Use `adsy_campaign_request` if available. Pass the exact HTTPS landing page supplied by the user, or omit it to use the saved project site. Reuse the same `request_id` throughout and supply only confirmed brief details. Follow the tool's returned link and next step.
