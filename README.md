@@ -13,7 +13,7 @@ Qonvert Connect uses one [Streamable HTTP MCP endpoint](https://glama.ai/mcp/con
 | **Google Search Console MCP** | Find a page with search impressions and low CTR. Start with the [free example or an export](guides/google-search-console-mcp.md). |
 | **Yandex Direct and Metrica** | Start with [campaign tracking](skills/audit-campaign-tracking/SKILL.md) or use the guest setup guide to plan one conversion measurement check. |
 
-For project data, follow the [Connect Qonvert skill](skills/connect-qonvert/SKILL.md). Select the user's project, check that the intended source is connected and request only the permission needed. If data access is unavailable, use a sample or a user-provided export and label it. Campaign optimization and creation depend on the Qonvert plan and require approval before changes are applied.
+For project data, follow the [Connect Qonvert skill](skills/connect-qonvert/SKILL.md). Select the user's project, check that the intended source is connected and request only the permission needed. Use data from an authorized source in your own workflow whenever its read tool is available. Qonvert’s built-in scenarios are optional. If data access is unavailable, use a sample or a user-provided export and label it. Campaign optimization and creation depend on the Qonvert plan and require approval before changes are applied.
 
 ## Open marketing skills
 
