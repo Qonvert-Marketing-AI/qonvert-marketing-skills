@@ -18,6 +18,10 @@ Check the UTM tags on an example Google Ads link without signing in. Use the qui
 - [Free Google Ads MCP for Claude: a quick tracking check](guides/google-ads-mcp-for-claude.md)
 - [Google Ads audit checklist](guides/google-ads-audit-checklist.md)
 
+## SEO guide
+
+- [Google Search Console MCP: find your next SEO fix](guides/google-search-console-mcp.md)
+
 ## Try a skill
 
 Open its `SKILL.md` and give the file to your assistant. Ask it to apply the skill to your business and share only the details needed for the task. If your assistant supports Agent Skills, add the individual skill folder using its installation flow.
