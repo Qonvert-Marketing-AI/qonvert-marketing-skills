@@ -39,6 +39,10 @@ Check the UTM tags on an example Google Ads link without signing in. Use the qui
 - [Free Google Ads MCP for Claude: a quick tracking check](guides/google-ads-mcp-for-claude.md)
 - [Google Ads audit checklist](guides/google-ads-audit-checklist.md)
 
+## Яндекс Директ MCP
+
+- [Как проверить UTM и yclid перед запуском рекламы](guides/yandex-direct-mcp.md)
+
 ## SEO guide
 
 - [Google Search Console MCP: find your next SEO fix](guides/google-search-console-mcp.md)
