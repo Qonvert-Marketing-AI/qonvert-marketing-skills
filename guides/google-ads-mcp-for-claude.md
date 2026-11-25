@@ -20,7 +20,7 @@ For a graphical client, add the same URL as a Streamable HTTP connector. Project
 
 **First prompt:** Which UTM tag is missing from `https://example.com/rooms?utm_source=google&utm_medium=cpc`? The public `check_marketing_tracking_url` tool returns `utm_campaign` without a Qonvert account.
 
-**Account tool:** `read_ads_daily` is available to eligible clients and grants for the selected ad account. A report covers up to seven days and 500 rows. Use the project connection for account data and confirm the plan before requesting campaign changes.
+**Account tools:** Use `get_qonvert_connect_guide` for examples and `google_ads_mcp` as the Google Ads entry point. For project data, sign in through Qonvert Connect, choose a project, then grant access to the intended ad account. Supported clients can use `read_ads_daily` with the required grant and plan access. See the [Google Ads MCP source guide](https://qonvert.ai/connect/google-ads?utm_source=github&utm_medium=guide&utm_campaign=google_ads_mcp&utm_content=claude_source_docs) for method names, report limits and permissions.
 
 Use Qonvert’s public Google Ads MCP to check the UTM tags on a campaign link for free, without creating a Qonvert account. The example below uses a fictional hotel.
 
