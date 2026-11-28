@@ -1,6 +1,6 @@
 # Qonvert Marketing Skills
 
-This is the open Agent Skills library for **Qonvert Marketing AI**, a marketing adviser for businesses and their AI agents. Start with a free check or an open skill. Use **Qonvert Connect** to authorize project sources when your question needs data from a business account.
+This is the open Agent Skills library for **Qonvert Marketing AI**, a marketing adviser for businesses and their AI agents. Start by reviewing an existing Google Ads campaign and preparing a change for approval. The open skills also cover tracking, SEO and channel reviews. Use **Qonvert Connect** to authorize project sources when your question needs data from a business account.
 
 ## Start here if you are an AI agent
 
@@ -34,9 +34,9 @@ Five standalone skills work without a Qonvert account. The sixth helps an assist
 
 ## Free Google Ads MCP
 
-Check the UTM tags on an example Google Ads link without signing in. Use the quickstart to try the public [Qonvert MCP](https://glama.ai/mcp/connectors/ai.qonvert/qonvert), then use the checklist to review a campaign.
+Review the spend, recorded bookings and search terms from a synthetic Google Ads campaign. Prepare one change for approval, then try the workflow with your own account during the three-day product trial. The guide also includes a public UTM check.
 
-- [Free Google Ads MCP for Claude: a quick tracking check](guides/google-ads-mcp-for-claude.md)
+- [Google Ads MCP for Claude: Review an Existing Campaign](guides/google-ads-mcp-for-claude.md)
 - [Google Ads audit checklist](guides/google-ads-audit-checklist.md)
 
 ## Яндекс Директ MCP
