@@ -1,35 +1,45 @@
-# Free Google Ads MCP for Claude: a quick tracking check
+# Google Ads MCP for Claude: Review an Existing Campaign
 
-## Quick start
+Use **Qonvert Marketing AI** to review one Google Ads campaign you already run. Compare spend, recorded conversions, and actual search terms. Start with one proposed change you can explain and approve.
 
-If you already added Qonvert, reuse that connection. Otherwise choose the command for your client.
+[Start your 3-day free trial without a card](https://qonvert.ai/services/google-ads?utm_source=github&utm_medium=guide&utm_campaign=google_ads_mcp&utm_content=claude_quickstart)
 
-**Claude Code**
+## Try the review with a sample report
+
+The table is synthetic. It represents 30 complete reporting days for a fictional hotel, after its booking action had time to report.
+
+| Campaign | Ad group | Search term | Clicks | Spend | Recorded bookings |
+| --- | --- | --- | ---: | ---: | ---: |
+| Direct Bookings | City Rooms | hotel front desk jobs | 28 | $84 | 0 |
+
+Give Claude the table or a sanitized export and ask:
+
+> Review these Google Ads search terms using recorded bookings as the outcome. Show one proposed change with the exact campaign, ad group, search term, and evidence. Tell me what to verify before I approve it.
+
+A candidate is to add the exact-match negative keyword `[hotel front desk jobs]` to **Direct Bookings → City Rooms**. The query suggests job-seeking intent and accounts for $84 in spend with zero recorded bookings in the sample. Check existing exclusions, conversion lag, and related booking terms before approving. The [open ad review skill](../skills/review-ad-performance/SKILL.md) describes how to handle missing evidence.
+
+If you approve a supported change in Qonvert, confirm it in the intended ad group after application. Compare job-seeker spend and recorded bookings across comparable reporting periods with the same conversion definition. [Google Ads search terms](https://support.google.com/google-ads/answer/2472708?hl=en) · [Conversion lag](https://support.google.com/google-ads/answer/9347065?hl=en) · [Negative keywords](https://support.google.com/google-ads/answer/2453972?hl=en)
+
+## Connect your own account
+
+Qonvert Connect uses one Streamable HTTP MCP endpoint, `https://mcp.qonvert.ai/mcp`. In Claude, use **Customize → Connectors → Add custom connector** if your plan and workspace allow it. For Claude Code, run the command below. Reuse an existing Qonvert connection when available. [Claude connectors](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp) · [Claude Code MCP](https://code.claude.com/docs/en/mcp)
 
 ```sh
 claude mcp add --transport http qonvert https://mcp.qonvert.ai/mcp
 ```
 
-**Codex**
+For Codex, use the same endpoint.
 
 ```sh
 codex mcp add qonvert --url https://mcp.qonvert.ai/mcp
 ```
 
-For a graphical client, add the same URL as a Streamable HTTP connector. Project data requires consent for the selected source. [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp)
+1. Follow the client's OAuth prompt, choose the intended Qonvert project, and connect or select your Google Ads account. Grant access only to that source.
+2. Check the project with `get_project` and discover tools available in your client. Use the Google Ads Optimization entry to check readiness. Report and preparation access depends on your client, project permissions, plan, and the account connection.
+3. When the workflow is available, ask for the same campaign review using your account. Open a returned recommendation or setup link in Qonvert and review the evidence before approving any change.
 
-**First prompt:** Which UTM tag is missing from `https://example.com/rooms?utm_source=google&utm_medium=cpc`? The public `check_marketing_tracking_url` tool returns `utm_campaign` without a Qonvert account.
+[Google Ads Optimization setup](https://qonvert.ai/connect/google-ads-optimization) · [Google Ads MCP tools and permissions](https://qonvert.ai/connect/google-ads?utm_source=github&utm_medium=guide&utm_campaign=google_ads_mcp&utm_content=claude_source_docs) · [Connect Qonvert skill](../skills/connect-qonvert/SKILL.md)
 
-**Account tools:** Use `get_qonvert_connect_guide` for examples and `google_ads_mcp` as the Google Ads entry point. For project data, sign in through Qonvert Connect, choose a project, then grant access to the intended ad account. Supported clients can use `read_ads_daily` with the required grant and plan access. See the [Google Ads MCP source guide](https://qonvert.ai/connect/google-ads?utm_source=github&utm_medium=guide&utm_campaign=google_ads_mcp&utm_content=claude_source_docs) for method names, report limits and permissions.
+## Check tracking on a campaign link
 
-Use Qonvert’s public Google Ads MCP to check the UTM tags on a campaign link for free, without creating a Qonvert account. The example below uses a fictional hotel.
-
-1. In Claude, open **Customize → Connectors**. Add Qonvert as a custom remote connector at `https://mcp.qonvert.ai/mcp` if your workspace permits it. Follow any prompts shown by the client. [Claude’s remote connector guide](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
-2. Ask: “Which campaign tag is missing from `https://example.com/rooms?utm_source=google&utm_medium=cpc`?” This prompt also works in another MCP client that can access the public endpoint. [Qonvert MCP in Glama](https://glama.ai/mcp/connectors/ai.qonvert/qonvert)
-3. Expected result: the endpoint found `utm_source` and `utm_medium` and flagged missing `utm_campaign`. Add a campaign label, then test a real visit separately to check redirects and conversion recording.
-
-Once you want to use project data, [open the Google Ads workflow in Qonvert](https://qonvert.ai/services/google-ads?utm_source=github&utm_medium=guide&utm_campaign=google_ads_mcp&utm_content=claude_quickstart) and connect the account you intend to review. See [Connect Qonvert](../skills/connect-qonvert/SKILL.md) for consent and project selection. The sample URL result was verified against the public MCP endpoint.
-
-**Pricing.** The public URL check is free. Qonvert offers a standard three-day product trial without a card. Campaign creation requires an eligible paid plan. See [Qonvert pricing](https://qonvert.ai/pricing?utm_source=github&utm_medium=guide&utm_campaign=google_ads_mcp&utm_content=claude_pricing) for current trial and plan details.
-
-For a repeatable review, use the [Google Ads audit checklist](google-ads-audit-checklist.md).
+As a separate free check, ask which core UTM tag is missing from `https://example.com/rooms?utm_source=google&utm_medium=cpc`. The public `check_marketing_tracking_url` tool identifies `utm_campaign` from the supplied URL without an account. Test an approved visit separately to check redirects and event recording. [Google Ads audit checklist](google-ads-audit-checklist.md) · [Qonvert MCP in Glama](https://glama.ai/mcp/connectors/ai.qonvert/qonvert)
